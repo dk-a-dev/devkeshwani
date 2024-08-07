@@ -1,0 +1,77 @@
+---
+const icons = [
+  {
+    href: "https://www.linkedin.com/in/dev-keshwani",
+    src: "/icons/linkedin.svg",
+    alt: "LinkedIn",
+    label: "LinkedIn",
+  },
+  {
+    href: "https://github.com/dk-a-dev",
+    src: "../../public/icons/github.svg",
+    alt: "GitHub",
+    label: "GitHub",
+  },
+  {
+    href: "https://dub.sh/resume-dev-keshwani",
+    src: "../icons/resume.svg",
+    alt: "Resume",
+    label: "Resume",
+  },
+  {
+    href: "mailto:dev.keshwani345@gmail.com",
+    src: "/icons/email.svg",
+    alt: "Email",
+    label: "Email",
+  },
+  {
+    href: "https://x.com/DK_A_Dev",
+    src: "/icons/twitter.svg",
+    alt: "Twitter",
+    label: "Twitter",
+  },
+];
+---
+
+<style>
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 20px;
+    width: 100%;
+    z-index: 2;
+  }
+  .social-icons a {
+    display: inline-block;
+    position: relative;
+  }
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
+  .social-icons a:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    z-index: 3;
+  }
+</style>
+
+<div class="social-icons">
+  {
+    icons.map((icon) => (
+      <a href={icon.href} target="_blank" rel="noreferrer" title={icon.label}>
+        <img src={icon.src} alt={icon.alt} />
+      </a>
+    ))
+  }
+</div>
