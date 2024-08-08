@@ -59,7 +59,7 @@ const experiences = [
   },
 ];
 const summary =
-  "I am a junior at Vellore Institute of Technology (VIT), pursuing a B.Tech in Computer Science with specialization in IoT. I am particularly passionate about app development, where I leverage Flutter for making apps and GoLang and Node.js for back-end.";
+  "Third year student currently pursuing B.Tech in Computer Science specialised in IoT at VIT Vellore. Passionate about building robust apps using Flutter and Kotlin. I am proficient in GoLang and Node.js for back-end development, Python, JavaScript, Firebase, SQL/NoSQL Databases. I am also good with using Github and Docker";
 const technicalSkills = [
   "Python",
   "JavaScript",
@@ -84,9 +84,14 @@ const technicalSkills = [
     margin: 0 auto;
     max-width: 800px;
   }
+  @media (max-width: 800px) {
+    .card-grid {
+      justify-content: center;
+    }
+  }
 </style>
 
-<BaseLayout>
+<BaseLayout title="dk-a-dev experince">
   <div class="experience-container">
     <ExperienceHeader summary={summary} technicalSkills={technicalSkills} />
     <div class="card-grid">
