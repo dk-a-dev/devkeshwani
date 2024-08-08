@@ -1,0 +1,108 @@
+---
+// src/pages/experience.astro
+import ExpCard from "../components/ExpCard.astro";
+import BaseLayout from "../layout/BaseLayout.astro";
+import ExperienceHeader from "../components/ExperienceHeader.astro";
+const experiences = [
+  {
+    position: "App Developer Intern",
+    company: "Valsco Technology Pvt Ltd",
+    location: "Remote",
+    duration: "July 2024 - Present",
+    description: [
+      "Developing the NoteSwap App using Flutter to help 10K+ VIT university students easily trade/lend notes during exams.",
+      "Implementing caching strategies and performance optimizations, enhancing the app's responsiveness and user experience.",
+      "Integrating secure payment gateways and OAuth2 authentication for Google and Facebook, streamlining user access and transactions.",
+    ],
+    technologies: [
+      "Flutter",
+      "Caching Strategies",
+      "Performance Optimization",
+      "Payment Gateways",
+      "OAuth2",
+    ],
+    logo: "/images/valsco.jpeg",
+  },
+  {
+    position: "App Developer and Inner Core Member",
+    company: "GDSC VIT Vellore",
+    location: "Vellore, India",
+    duration: "July 2023 - Present",
+    description: [
+      "Led Android Study Jams, delivering comprehensive instruction on Android development using Kotlin, with recorded sessions garnering over 300 views on YouTube.",
+      "Demonstrated leadership by organizing major tech events (Hexathon'23, WomenTechies'24, DeconstruCT.F'23), each drawing 200+ participants, enhancing event management skills and community engagement.",
+    ],
+    technologies: [
+      "Android Development",
+      "Kotlin",
+      "Event Organization",
+      "Community Engagement",
+    ],
+    logo: "/images/gdsc.jpeg",
+  },
+  {
+    position: "Technical Manager and Core Member",
+    company: "IEEE-VIT",
+    duration: "July 2023 - June 2024",
+    location: "VIT Vellore",
+    description: [
+      "Maintainer of Hacktoberfest 2023 Repository opened by the club for volunteers to contribute",
+      "Conducted PyCamp, offline-sessions on python libraries.",
+      "Organised hackathons and workshops for the club, namely Hack-The-Hackathon'23 and SourceSprint'23",
+    ],
+    technologies: [
+      "Project Management",
+      "Event Organization",
+      "Community Engagement",
+    ],
+    logo: "/images/ieee.png",
+  },
+];
+const summary =
+  "I am a junior at Vellore Institute of Technology (VIT), pursuing a B.Tech in Computer Science with specialization in IoT. I am particularly passionate about app development, where I leverage Flutter for making apps and GoLang and Node.js for back-end.";
+const technicalSkills = [
+  "Python",
+  "JavaScript",
+  "Golang",
+  "Kotlin",
+  "Flutter",
+  "Firebase",
+  "Docker",
+  "SQL/NoSQL DBs",
+  "Git/GitHub",
+];
+---
+
+<style>
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px;
+  }
+  .experience-container {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+</style>
+
+<BaseLayout>
+  <div class="experience-container">
+    <ExperienceHeader summary={summary} technicalSkills={technicalSkills} />
+    <div class="card-grid">
+      {
+        experiences.map((exp) => (
+          <ExpCard
+            position={exp.position}
+            company={exp.company}
+            location={exp.location}
+            duration={exp.duration}
+            description={exp.description}
+            technologies={exp.technologies}
+            logo={exp.logo}
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

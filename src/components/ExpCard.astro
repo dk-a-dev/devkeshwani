@@ -1,0 +1,118 @@
+---
+const {
+  position,
+  company,
+  location,
+  duration,
+  description,
+  technologies,
+  logo,
+} = Astro.props;
+---
+
+<style>
+  .card {
+    background-color: #1a1a1a; /* Dark background for the card */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px; /* Adjust the width as needed */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    transition: transform 0.3s;
+    z-index: 2;
+  }
+
+  .card:hover {
+    transform: scale(1.02); /* Add a slight hover effect */
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .card-header img {
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+  }
+
+  .card-header h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .card-header .company {
+    font-weight: normal;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  .card-duration {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 10px;
+  }
+
+  .card-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tech-badge {
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .tech-badge:hover {
+    opacity: 1;
+  }
+  .description-list {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  .show-more {
+    color: blue;
+    cursor: pointer;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+</style>
+<div class="card">
+  <div class="card-header">
+    <img src={logo} alt={`${company} logo`} class="logo" />
+    <div>
+      <h2>{position}</h2>
+      <h2><span class="company"> {company}</span></h2>
+      <div class="card-duration">{duration} • {location}</div>
+    </div>
+  </div>
+  <div class="card-description">
+    {
+      Array.isArray(description) ? (
+        <ul>
+          {description.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>{description}</p>
+      )
+    }
+  </div>
+  <div class="card-technologies">
+    {technologies.map((tech) => <span class="tech-badge">{tech}</span>)}
+  </div>
+</div>

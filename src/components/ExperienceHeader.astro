@@ -1,0 +1,60 @@
+---
+const { summary, technicalSkills } = Astro.props;
+---
+
+<style>
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .summary {
+    text-align: left;
+    margin-bottom: 40px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .skills-section {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .chips {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    background-color: #444343;
+    border-radius: 12px;
+    position: relative;
+    
+    z-index: 2;
+    transition: border 0.3s ease;
+  }
+  .chips:hover {
+    border: 2px solid #edded1;
+  }
+   
+  .skills-section div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>
+
+<div class="container">
+  <div class="header">
+    <h1>Experience</h1>
+  </div>
+  <div class="summary">
+    <p>{summary}</p>
+  </div>
+  <div class="skills-section">
+    <h2>Technical Skills</h2>
+    <div>
+      {technicalSkills.map((skill) => <span class="chips">{skill}</span>)}
+    </div>
+  </div>
+</div>

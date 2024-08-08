@@ -1,0 +1,38 @@
+---
+import SpeedInsights from "@vercel/speed-insights/astro";
+import SocialIcons from "../components/SocialIcons.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/root.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="description" content="dk-a-dev's portfolio" />
+  </head>
+  <body>
+    <script is:inline>
+      function speedInsightsBeforeSend(data) {
+        console.log("Speed Insights before send", data);
+        return data;
+      }
+    </script>
+    <SpeedInsights />
+    <Navbar />
+    <slot />
+    <div class="glass-overlay"></div>
+    <canvas></canvas>
+    <script src="../scripts/dynamics.js"></script>
+  </body>
+</html>

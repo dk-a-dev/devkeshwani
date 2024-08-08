@@ -1,0 +1,25 @@
+---
+const { id } = Astro.props;
+---
+
+<div class="container" id={id}>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .content {
+    flex-grow: 1;
+    padding: 2rem;
+  }
+</style>
