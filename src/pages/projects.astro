@@ -1,57 +1,113 @@
 ---
-import BaseLayout from '../layout/BaseLayout.astro';
+import BaseLayout from "../layout/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ProjectHeader from "../components/ProjectHeader.astro";
+export const projects = [
+  {
+    title: "Liwid",
+    description: [
+      "Implemented the Liwid library for live widgets/notifications on the Lock Screen, enhancing order tracking, food tracking, and stock notifications with real-time updates.",
+      "Made a Prototype for the Library as a app to demonstrate the features of the library.",
+    ],
+    techStack: ["Kotlin", "RestAPI", "Android Library"],
+    link: "https://github.com/dk-a-dev/Liwid",
+    image: "/projects/liwid.svg",
+  },
+  {
+    title: "Rivera'24 App",
+    description: [
+      "Developed the official VIT Riviera'24 App for the annual international sports and cultural carnival, attracting 30,000+ students from 650+ colleges and featuring 100+ events.",
+      "Implemented an app that contributed to increased event visibility and engagement, despite the app having 100+ downloads",
+    ],
+    techStack: ["Flutter", "Dart", "Firebase", "Git"],
+    link: "https://play.google.com/store/apps/details?id=in.ac.vit.riviera24",
+    image: "/projects/riviera.svg",
+  },
+  {
+    title: "Breakey",
+    description: [
+      "Breakey is a simple yet effective typing speed test website(inspired by monkey-type)",
+      "Users can gauge their typing speed by typing a given set of words within a 30-second timeframe.",
+      "It implements sleek design of monkey-type with customizable themes",
+    ],
+    techStack: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+    ],
+    link: "https://breakey.vercel.app/",
+    image: "/projects/breakey.svg",
+  },
+  {
+    title: "Zitch",
+    description: [
+      " Innovated a solution for the Google Developers SDG Hackathon, geared towards helping NGOs and the UN's 17 Sustainable Development Goals",
+      "Worked in a 3 person team using gRPC, Flutter and Classification Models to generate a heatmap of stray dogs in an Android App",
+    ],
+    techStack: ["Flutter", "Dart", "Firebase", "gRPC"],
+    link: "",
+    image: "/projects/zitch.svg",
+  },
+  {
+    title: "BooKeeper App (In Progress)",
+    description: [
+      "An advanced AI-powered Book-keeping app inspired by Khatabook",
+      "Working in a 6-person team using Django, Flutter and Classification Models to record voice-enabled transactions in an Flutter App.",
+    ],
+    techStack: ["Flutter", "Dart", "Firebase", "Git"],
+    link: "https://github.com/dk-a-dev/book-keeping-app",
+    image: "/projects/bookeeper.svg",
+  },
+];
 ---
 
-<style>
-  .lottie-container {
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 2s ease-in-out;
-    z-index: 2;
-    position: relative;
-  }
-
-  .message {
-    text-align: center;
-    color: #e6e206; /* Muddy color */
-    font-family: 'Arial Black', Gadget, sans-serif;
-    font-size: 24px;
-    margin-top: 10px;
-    animation: fadeIn 2s ease-in-out;
-    z-index: 2;
-    position: relative;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<BaseLayout title="projects dk-a-dev">
-  <div class="lottie-container">
-    <dotlottie-player 
-      src="https://lottie.host/446a2c73-6ca7-426e-a50e-7e8f1568811f/LBgGfLi93l.json" 
-      background="transparent" 
-      speed="1" 
-      style="width: 100%; height: 100%;" 
-      loop 
-      autoplay>
-    </dotlottie-player>
+<BaseLayout title="DK A Dev Projects">
+  <ProjectHeader />
+  <div class="projects-container">
+    <div class="card-grid">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            techStack={project.techStack}
+            link={project.link}
+            image={project.image}
+          />
+        ))
+      }
+    </div>
   </div>
-  <div class="message">
-    Under construction
-  </div>
+
+  <style>
+    .projects-container {
+      padding: 2rem;
+    }
+    .card-grid {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .projects-container h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
 </BaseLayout>
-
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
