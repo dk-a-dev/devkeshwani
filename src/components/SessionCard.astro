@@ -59,6 +59,12 @@ const { title, description, topics, youtubeEmbedUrl, image, link } =
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 2;
   }
+  @media (max-width: 754px) {
+    .card {
+      max-width: 330px;
+      height: auto;
+    }
+  }
   .card:hover {
     transform: scale(1.02);
   }

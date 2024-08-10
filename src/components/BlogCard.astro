@@ -33,7 +33,7 @@ const { title, description, topics, image, link } = Astro.props;
     text-decoration: none;
     color: inherit;
   }
-  
+
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -46,6 +46,12 @@ const { title, description, topics, image, link } = Astro.props;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 2;
+  }
+  @media (max-width: 754px) {
+    .card {
+      max-width: 330px;
+      height: auto;
+    }
   }
   .card:hover {
     transform: scale(1.02);
