@@ -1,57 +1,122 @@
 ---
-import BaseLayout from '../layout/BaseLayout.astro';
+import BaseLayout from "../layout/BaseLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+import SessionHeader from "../components/SessionHeader.astro";
+import SessionCard from "../components/SessionCard.astro";
+const blogs = [
+  {
+    title: "Decoding VAR: The Polarizing Force Reshaping Football's Destiny",
+    description:
+      "The beautiful game—“Football”. With a ball, a field, and unbridled passion, it's a sport that speaks a universal language, uniting…",
+    topics: ["Football", "VAR", "Technology"],
+    image: "/extra/var.svg",
+    link: "https://medium.com/@dev.keshwani345/decoding-var-the-polarizing-force-reshaping-footballs-destiny-9564021cd368",
+  },
+];
+const sessions = [
+  {
+    title: "Android Study Jams: Introduction to Android Development",
+    description:
+      "Android Study Jams is back with another round of beginner-friendly sessions on developing your own Android apps using Kotlin on Android...",
+    topics: ["Android Dev", "Kotlin"],
+    youtubeEmbedUrl:
+      "https://www.youtube.com/embed/NJaEcyOwAu0?si=9gz-fg_LxfxToXHE",
+  },
+  {
+    title: "Android Study Jams: Architecture and Compose",
+    description:
+      "Ever wondered how apps like Uber update your ride status in real-time or how Instagram makes switching between your...",
+    topics: ["App Architecture", "Kotlin", "Android Dev"],
+    youtubeEmbedUrl:
+      "https://www.youtube.com/embed/BVpa-QR7GLQ?si=9SJhYkY-N3yXKq09",
+  },
+  {
+    title: "Android Study Jams: Networking and Task Scheduling",
+    description:
+      "Curious about how apps update live scores? This Android Study Jams session is for you. We'll explore fetching data from APIs,...",
+    topics: ["Android Dev", "Kotlin", "Coroutines"],
+    youtubeEmbedUrl:
+      "https://www.youtube.com/embed/y9nkT8dHB_0?si=6qKSBn41gC8PhL27",
+  },
+  {
+    title: "PyCamp: Python Libraries",
+    description:
+      "PyCamp is a series of sessions on python libraries, Organised by IEEE-VIT. The sessions are beginner-friendly...",
+    topics: ["Python", "Data Science", "Web-Scraping", "Flask"],
+    youtubeEmbedUrl:null,
+    image: "/extra/pycamp.svg",
+    link:"https://github.com/IEEE-VIT/PyCamp-Day1"
+  },
+];
 ---
 
-<style>
-  .lottie-container {
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 2s ease-in-out;
-    z-index: 2;
-    position: relative;
-  }
-
-  .message {
-    text-align: center;
-    color: #e6e206; /* Muddy color */
-    font-family: 'Arial Black', Gadget, sans-serif;
-    font-size: 24px;
-    margin-top: 10px;
-    animation: fadeIn 2s ease-in-out;
-    z-index: 2;
-    position: relative;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<BaseLayout title="dk-a-dev's blogs & sessions">
-  <div class="lottie-container">
-    <dotlottie-player 
-      src="https://lottie.host/446a2c73-6ca7-426e-a50e-7e8f1568811f/LBgGfLi93l.json" 
-      background="transparent" 
-      speed="1" 
-      style="width: 100%; height: 100%;" 
-      loop 
-      autoplay>
-    </dotlottie-player>
+<BaseLayout title="dk-a-dev/blogs&sessions">
+  <SessionHeader />
+  <div class="experience-container">
+    <div class="projects-container">
+      <div class="card-grid">
+        {
+          sessions.map((session) => (
+            <SessionCard
+              title={session.title}
+              description={session.description}
+              topics={session.topics}
+              youtubeEmbedUrl={session.youtubeEmbedUrl}
+              image={session.image}
+              link={session.link}
+            />
+          ))
+        }
+      </div>
+    </div>
   </div>
-  <div class="message">
-    Under construction
+  <BlogHeader />
+  <div class="experience-container">
+    <div class="projects-container">
+      <div class="card-grid">
+        {
+          blogs.map((blog) => (
+            <BlogCard
+              title={blog.title}
+              description={blog.description}
+              topics={blog.topics}
+              image={blog.image}
+              link={blog.link}
+            />
+          ))
+        }
+      </div>
+    </div>
   </div>
 </BaseLayout>
+<style>
+  .projects-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .card-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
 
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .projects-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+</style>

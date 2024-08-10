@@ -10,9 +10,9 @@ const experiences = [
     location: "Remote",
     duration: "July 2024 - Present",
     description: [
-      "Developing the NoteSwap App using Flutter to help 10K+ VIT university students easily trade/lend notes during exams.",
-      "Implementing caching strategies and performance optimizations, enhancing the app's responsiveness and user experience.",
-      "Integrating secure payment gateways and OAuth2 authentication for Google and Facebook, streamlining user access and transactions.",
+      "Developing a mobile application using Flutter to support a large user base in a university setting.",
+      "Implementing performance optimizations and caching strategies to enhance app responsiveness.",
+      "Integrating secure payment gateways and OAuth2 authentication to streamline user access and transactions.",
     ],
     technologies: [
       "Flutter",
@@ -22,6 +22,7 @@ const experiences = [
       "OAuth2",
     ],
     logo: "/images/valsco.jpeg",
+    link: " https://www.valscotech.com/",
   },
   {
     position: "App Developer and Inner Core Member",
@@ -39,6 +40,7 @@ const experiences = [
       "Community Engagement",
     ],
     logo: "/images/gdsc.jpeg",
+    link: "https://www.dscvit.com/team",
   },
   {
     position: "Technical Manager and Core Member",
@@ -56,6 +58,7 @@ const experiences = [
       "Community Engagement",
     ],
     logo: "/images/ieee.png",
+    link: "https://ieeevit.org",
   },
   {
     position: "Volunteer/Social Worker",
@@ -67,17 +70,25 @@ const experiences = [
       "Provided food to underprivileged individuals and fed stray animals during the summer heat.",
       "Planted saplings to contribute to environmental sustainability.",
     ],
-    technologies: ["Volunteering", "Social Services", "Environmental Awareness"],
+    technologies: [
+      "Volunteering",
+      "Social Services",
+      "Environmental Awareness",
+    ],
     logo: "/images/kf.jpeg",
+    link: "https://drive.google.com/drive/folders/1OV_t0N43GXWacBgdUXnKD50E19MSOzi6?usp=drive_link/",
   },
 ];
 const summary =
   "Third year student currently pursuing B.Tech in Computer Science specialised in IoT at VIT Vellore. Passionate about building robust apps using Flutter and Kotlin. I am proficient in GoLang and Node.js for back-end development, Python, JavaScript, Firebase, SQL/NoSQL Databases. I am also good with using Github and Docker";
 const technicalSkills = [
   "Python",
-  "JavaScript",
-  "Golang",
+  "C/C++",
   "Kotlin",
+  "Golang",
+  "Astro",
+  "Node.js",
+  "JavaScript",
   "Flutter",
   "Firebase",
   "Docker",
@@ -104,7 +115,7 @@ const technicalSkills = [
   }
 </style>
 
-<BaseLayout title="dk-a-dev experince">
+<BaseLayout title="dk-a-dev/experince">
   <div class="experience-container">
     <ExperienceHeader summary={summary} technicalSkills={technicalSkills} />
     <div class="card-grid">
@@ -118,6 +129,7 @@ const technicalSkills = [
             description={exp.description}
             technologies={exp.technologies}
             logo={exp.logo}
+            link={exp.link}
           />
         ))
       }

@@ -7,24 +7,29 @@ const {
   description,
   technologies,
   logo,
+  link,
 } = Astro.props;
 ---
 
 <style>
   .card {
-    background-color: #1a1a1a; /* Dark background for the card */
+    background-color: #1a1a1a;
     border-radius: 8px;
     padding: 20px;
-    max-width: 300px; /* Adjust the width as needed */
+    max-width: 300px;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-family: Arial, sans-serif;
     transition: transform 0.3s;
     z-index: 2;
   }
+  .header-link {
+    text-decoration: none;
+    color: inherit;
+  }
 
   .card:hover {
-    transform: scale(1.02); /* Add a slight hover effect */
+    transform: scale(1.02);
   }
 
   .card-header {
@@ -79,10 +84,6 @@ const {
     list-style-type: disc;
     margin-left: 20px;
   }
-  .show-more {
-    color: blue;
-    cursor: pointer;
-  }
   .logo {
     width: 50px;
     height: 50px;
@@ -91,28 +92,30 @@ const {
   }
 </style>
 <div class="card">
-  <div class="card-header">
-    <img src={logo} alt={`${company} logo`} class="logo" />
-    <div>
-      <h2>{position}</h2>
-      <h2><span class="company"> {company}</span></h2>
-      <div class="card-duration">{duration} • {location}</div>
+  <a href={link} class="header-link">
+    <div class="card-header">
+      <img src={logo} alt={`${company} logo`} class="logo" />
+      <div>
+        <h2>{position}</h2>
+        <h2><span class="company"> {company}</span></h2>
+        <div class="card-duration">{duration} • {location}</div>
+      </div>
     </div>
-  </div>
-  <div class="card-description">
-    {
-      Array.isArray(description) ? (
-        <ul>
-          {description.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>{description}</p>
-      )
-    }
-  </div>
-  <div class="card-technologies">
-    {technologies.map((tech) => <span class="tech-badge">{tech}</span>)}
-  </div>
+    <div class="card-description">
+      {
+        Array.isArray(description) ? (
+          <ul>
+            {description.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>{description}</p>
+        )
+      }
+    </div>
+    <div class="card-technologies">
+      {technologies.map((tech) => <span class="tech-badge">{tech}</span>)}
+    </div>
+  </a>
 </div>
