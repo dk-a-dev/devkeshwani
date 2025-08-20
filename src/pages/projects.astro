@@ -4,53 +4,72 @@ import ProjectCard from "../components/ProjectCard.astro";
 import ProjectHeader from "../components/ProjectHeader.astro";
 export const projects = [
   {
+    title: "Artium",
+    description: [
+      "Platform for art discovery using Neural Style Transfer with VGG19 network to generate art in famous artist styles.",
+      "Integrated user authentication, artwork galleries, and social sharing features for enhanced user experience.",
+    ],
+    techStack: ["Next.js", "Flutter", "MongoDB", "VGG19", "Neural Style Transfer", "Git"],
+    link: "https://artium.dscvit.com/",
+    image: "/projects/artium.svg",
+  },
+  {
+    title: "LightSabar",
+    description: [
+      "Built production-ready Go REST API with Docker, CI/CD pipelines, JWT authentication, and Grafana/Graphite monitoring stack.",
+      "Implemented comprehensive testing suite, database migrations, and role-based permissions with 95%+ uptime through automated health checks.",
+    ],
+    techStack: ["GoLang", "PostgreSQL", "Docker", "CI/CD", "JWT", "Grafana", "Graphite"],
+    link: "https://github.com/dk-a-dev/LightSabar",
+    image: "/projects/lightsabar.svg",
+  },
+  {
     title: "Liwid",
     description: [
-      "Implemented the Liwid library for live widgets/notifications on the Lock Screen, enhancing order tracking, food tracking, and stock notifications with real-time updates.",
-      "Made a Prototype for the Library as a app to demonstrate the features of the library.",
+      "Implemented Android library for live widgets/notifications on Lock Screen with real-time updates for tracking applications.",
+      "Developed comprehensive documentation and testing suite for seamless integration across multiple Android applications.",
     ],
-    techStack: ["Kotlin", "RestAPI", "Android Library"],
+    techStack: ["Kotlin", "Android Library", "Real-time Updates", "Documentation"],
     link: "https://github.com/dk-a-dev/Liwid",
     image: "/projects/liwid.svg",
   },
   {
-    title: "Rivera'24 App",
+    title: "Riviera'24 App",
     description: [
-      "Developed the official VIT Riviera'24 App for the annual international sports and cultural carnival, attracting 30,000+ students from 650+ colleges and featuring 100+ events.",
-      "Implemented an app that contributed to increased event visibility and engagement, despite the app having 100+ downloads",
+      "Official VIT Riviera'24 App for international sports and cultural carnival with 30,000+ students from 650+ colleges.",
+      "Implemented real-time event updates, registration system, and push notifications for enhanced user engagement.",
     ],
-    techStack: ["Flutter", "Dart", "Firebase", "Git"],
+    techStack: ["Flutter", "Dart", "Firebase", "Real-time Updates", "Push Notifications"],
     link: "https://play.google.com/store/apps/details?id=in.ac.vit.riviera24",
     image: "/projects/riviera.png",
   },
   {
     title: "SoundCrowd",
     description: [
-      "A platform to manage shared spotify playlists during events",
-      "Admin based event creation and song addition management",
+      "A collaborative platform to manage shared Spotify playlists during events, enabling seamless music coordination for gatherings and parties.",
+      "Features admin-based event creation and song addition management, allowing organizers to control playlist contributions and maintain event atmosphere.",
     ],
-    techStack: ["Svelte", "TailwindCSS"],
+    techStack: ["Svelte", "TailwindCSS", "Spotify API", "Event Management"],
     link: "https://soundcrowd.dscvit.com/",
     image: "/projects/collabify.svg",
   },
   {
-    title:"Artium",
-    description:[
-      "Artium is a platform to Discover historic and contemporary art styles.",
-      "Users can create a profile, upload their work.",
-      "Utilizes Neural Style Transfer (NST), powered by a pre-trained VGG19 network to generate art in the style of famous artists.",
+    title: "Mentor: VITTY 3.0 - VIT Timetable App",
+    description: [
+      "VITTY is back like never before - meet VITTY 3.0. An Android app for your VIT timetable with 40,000+ total users, 4,000+ active users, 32+ GitHub stars and 5+ contributors.",
+      "VITTY makes scheduling simple and social. Features include Circles for connecting with friends, notes and files organization, instant empty classroom finder, iOS widgets, homescreen widgets, caching & offline-ready timetables, ghost mode, reminders, and in-app notifications."
     ],
-    techStack:["NextJs","Node.js","Express.js","MongoDB","TailwindCSS","Flutter","Provider"],
-    link:"https://artium.dscvit.com/",
-    image:"/projects/artium.svg",
+    techStack: ["Android", "Kotlin", "Jetpack Compose", "Room", "LiveData", "ViewModel", "QR Code", "Markdown", "Navigation", "Firebase"],
+    link: "https://github.com/GDSCVIT/vitty",
+    image: "/projects/vitty.svg",
   },
   {
     title: "Zitch",
     description: [
-      " Innovated a solution for the Google Developers SDG Hackathon, geared towards helping NGOs and the UN's 17 Sustainable Development Goals",
-      "Worked in a 3 person team using gRPC, Flutter and Classification Models to generate a heatmap of stray dogs in an Android App",
+      "Innovated a solution for the Google Developers SDG Hackathon, helping NGOs and the UN's 17 Sustainable Development Goals.",
+      "Generated a heatmap of stray dogs in an Android App using gRPC and Classification Models.",
     ],
-    techStack: ["Flutter", "Dart", "Firebase", "gRPC"],
+    techStack: ["Flutter", "Dart", "Firebase", "gRPC", "Classification Models"],
     link: "https://github.com/sidhant-sriv/zitch",
     image: "/projects/zitch.svg",
   },

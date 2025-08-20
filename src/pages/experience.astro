@@ -5,10 +5,29 @@ import BaseLayout from "../layout/BaseLayout.astro";
 import ExperienceHeader from "../components/ExperienceHeader.astro";
 const experiences = [
   {
+    position: "Research Internship",
+    company: "Samsung R&D Institute India - Bangalore",
+    location: "Bangalore",
+    duration: "July 2025 - Present",
+    description: [
+      "Research: On-Device Predictive Model Integration for SmartThings Ecosystem",
+      "Samsung PRISMA research program participant focusing on predictive modelling and IoT integration.",
+    ],
+    technologies: [
+      "Machine Learning",
+      "IoT",
+      "SmartThings",
+      "On-Device Processing",
+      "Android-Native"
+    ],
+    logo: "/images/samsung.jpeg",
+    link: "",
+  },
+  {
     position: "App Developer Intern",
     company: "Valsco Technology Pvt Ltd",
     location: "Remote",
-    duration: "July 2024 - October 2024",
+    duration: "July 2024 - September 2024",
     description: [
       "Developing a mobile application using Flutter to support a large user base in a university setting.",
       "Implementing performance optimizations and caching strategies to enhance app responsiveness.",
@@ -21,25 +40,31 @@ const experiences = [
       "Performance Optimization",
       "Payment Gateways",
       "OAuth2",
+      "Google Cloud Platform"
     ],
     logo: "/images/valsco.jpeg",
-    link: " https://www.valscotech.com/",
+    link: "https://www.valscotech.com/",
   },
   {
-    position: "App Lead and Inner Core Member",
-    company: "GDSC VIT Vellore",
+    position: "Applications and Projects Lead",
+    company: "Google Developers Group - VIT",
     location: "Vellore, India",
     duration: "July 2023 - Present",
     description: [
-      "Led Android Study Jams, delivering comprehensive instruction on Android development using Kotlin, with recorded sessions garnering over 300 views on YouTube.",
-      "Demonstrated leadership by organizing major tech events (Hexathon'23, WomenTechies'24, DeconstruCT.F'23), each drawing 200+ participants, enhancing event management skills and community engagement.",
+      "Led Android Study Jams on Kotlin development, generating 500+ YouTube views and organised tech events with 4000+ participants each.",
+      "Enhanced event management skills through organizing DevJams'24/25, Hexathon'23/24, WomenTechies'24/25, and DeconstruCT.F'23.",
+      "Conducted comprehensive workshops on Android Development",
+      "Developed and mentored team members on production applications including VITTY 3.0 and Riviera'24, ensuring code quality and timely delivery.",
     ],
     technologies: [
-      "App Development",
       "Android Development",
-      "Backend Development",
+      "Kotlin",
+      "Flutter",
+      "Firebase",
+      "Git/GitHub",
       "Event Organization",
-      "Community Engagement",
+      "Team Mentoring",
+      "Leadership",
     ],
     logo: "/images/gdsc.jpeg",
     link: "https://www.dscvit.com/team",
@@ -48,14 +73,17 @@ const experiences = [
     position: "Technical Manager and Core Member",
     company: "IEEE-VIT",
     duration: "July 2023 - June 2024",
-    location: "VIT Vellore",
+    location: "Vellore, India",
     description: [
-      "Maintainer of Hacktoberfest 2023 Repository opened by the chapter for volunteers to contribute",
-      "Conducted PyCamp, offline-sessions on python libraries.",
-      "Organised hackathons and workshops for the club, namely Hack-The-Hackathon'23 and SourceSprint'23",
+      "Maintained Hacktoberfest 2023 repositories and reviewed 20+ PRs across 2 projects for IEEE-VIT.",
+      "Delivered Python library sessions at PyCamp to 150+ participants and organized Hack-The-Hackathon'23.",
     ],
     technologies: [
+      "Python",
       "Project Management",
+      "Open Source",
+      "Hacktoberfest",
+      "Code Review",
       "Event Organization",
       "Community Engagement",
     ],
@@ -82,7 +110,7 @@ const experiences = [
   },
 ];
 const summary =
-  "Third year student currently pursuing B.Tech in Computer Science specialised in IoT at VIT Vellore. Passionate about building robust apps using Flutter and Kotlin. I am proficient in GoLang and Node.js for back-end development, Python, JavaScript, Firebase, SQL/NoSQL Databases. I am also good with using Github and Docker";
+  "Final year Computer Science student at VIT Vellore with 8.61 CGPA, specializing in full-stack development and mobile applications. Experienced in Flutter, GoLang, Python, and modern web technologies with hands-on experience in DevOps, CI/CD, and cloud platforms. Passionate about building scalable applications and contributing to open-source projects.";
 const technicalSkills = [
   "Python",
   "C/C++",
@@ -91,7 +119,16 @@ const technicalSkills = [
   "Astro",
   "Node.js",
   "JavaScript",
+  "TypeScript",
   "Flutter",
+  "Astro.js",
+  "Node.js/Express",
+  "FastAPI",
+  "Next.js",
+  "Docker",
+  "CI/CD",
+  "MongoDB",
+  "PostgreSQL",
   "Firebase",
   "Docker",
   "SQL/NoSQL DBs",
