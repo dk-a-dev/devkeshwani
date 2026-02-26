@@ -10,6 +10,8 @@ import { Extras } from "@/components/sections/Extras";
 import { Contact } from "@/components/sections/Contact";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { MixerPanel } from "@/components/MixerPanel";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const App = () => {
     const [currentPage, setCurrentPage] = useState<string>("about");
@@ -53,6 +55,8 @@ const App = () => {
                 <Layout currentPage={currentPage} onNavigate={handleNavigate}>
                     {renderPage()}
                 </Layout>
+                <Analytics />
+                <SpeedInsights />
             </TooltipProvider>
         </ThemeProvider>
     );
