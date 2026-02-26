@@ -48,8 +48,6 @@
         background-color: #0a0a0c;
         background-attachment: fixed;
         overflow-x: hidden;
-        --blob-a: rgba(219, 39, 119, 0.15);
-        --blob-b: rgba(20, 184, 166, 0.15);
     }
 
     /* ===== TEXTURE: Noise (default) ===== */

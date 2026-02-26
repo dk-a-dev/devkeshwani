@@ -121,7 +121,7 @@ function Turntable({ spinning, onClick, icon }: { spinning?: boolean; onClick?: 
             </div>
             {/* Action Icon Overlay */}
             {icon && (
-                <div className="absolute inset-0 flex items-center justify-center z-10 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 rounded-full">
+                <div className="absolute inset-0 flex items-center justify-center z-10 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] opacity-100 bg-black/20 group-hover:bg-black/40 transition-colors rounded-full">
                     {icon}
                 </div>
             )}
@@ -174,6 +174,10 @@ export function MixerPanel() {
                 });
             };
             IFrameAPI.createController(element, options, callback);
+        };
+
+        return () => {
+            embedControllerRef.current?.destroy();
         };
     }, []);
 
