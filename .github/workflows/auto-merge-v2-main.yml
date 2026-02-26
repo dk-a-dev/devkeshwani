@@ -1,0 +1,32 @@
+name: Auto PR and Merge v2 to main
+
+on:
+  push:
+    branches:
+      - v2
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Auto PR and Merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Attempting to create PR from v2 to main..."
+          # This command creates a PR if there are differences. It fails gracefully if a PR already exists or if there's no diff.
+          gh pr create --base main --head v2 --title "chore: auto sync v2 to main" --body "Automatically merging v2 into main after changes." || echo "PR creation skipped (already exists or no diff)."
+
+          echo "Attempting to merge the PR..."
+          # This command merges the open PR from v2 to main.
+          gh pr merge v2 --merge || echo "PR merge skipped (maybe branch protection rules prevented it or no open PR)."
