@@ -163,9 +163,26 @@ export const resume: SiteConfig = {
 
     projects: [
         {
+            title: "dev.ly",
+            client: "Personal Project",
+            timeline: "2026",
+            techStack: ["Next.js", "Express.js", "Redis", "BullMQ", "PostgreSQL"],
+            images: ["/projects/dev-ly.png"],
+            description: "A high-performance URL shortener with a dedicated analytics microservice, real-time click tracking, Redis caching, BullMQ queues, and a modern Next.js dashboard.",
+            scope: "Full-Stack Development + Microservices",
+            responsibilities: [
+                "Built a multi-repo microservices architecture with an Express.js URL shortener API and a dedicated analytics service.",
+                "Engineered robust click tracking and guaranteed delivery using BullMQ workers and Redis caching.",
+                "Developed a modern dashboard using Next.js 16 and Tailwind CSS to visualize user's aggregate stats and time series data."
+            ],
+            languages: ["TypeScript", "JavaScript"],
+            repoUrl: "https://github.com/dk-a-dev/dev.ly",
+            demoUrl: "https://dev-ly-frontend.vercel.app/",
+        },
+        {
             title: "Harmonica",
             client: "Personal Project",
-            timeline: "2025",
+            timeline: "2026",
             techStack: ["Swift", "SwiftUI", "Core Data", "WebKit"],
             images: ["/projects/harmonica.png"],
             description: "A native Swift/SwiftUI Hacker News client inspired by Harmonic for Android. Built with zero third-party dependencies. Features Best/New/Ask/Show/Jobs feeds, time filters, in-app WebView, bookmarks, threaded comments, user profiles, Algolia-powered search, story submission, offline caching, and 7 themes including animated Liquid UI themes.",
@@ -192,7 +209,7 @@ export const resume: SiteConfig = {
                 "Integrated social features like sharing artworks and curated collections.",
             ],
             languages: ["TypeScript", "Python", "Dart"],
-            repoUrl: "https://artium.dscvit.com/",
+            repoUrl: "https://github.com/gdgvit/artium-frontend",
             demoUrl: "https://artium.dscvit.com/",
         },
         {
@@ -225,6 +242,7 @@ export const resume: SiteConfig = {
                 "Managed GitHub repository with 32+ stars and 5+ contributors.",
             ],
             languages: ["Kotlin"],
+            demoUrl: "https://vitty.dscvit.com",
             repoUrl: "https://github.com/GDSCVIT/vitty",
         },
         {
@@ -241,7 +259,8 @@ export const resume: SiteConfig = {
                 "Recognized as Technical Team Co-Ordinator for contributions.",
             ],
             languages: ["Dart"],
-            repoUrl: "https://play.google.com/store/apps/details?id=in.ac.vit.riviera24",
+            demoUrl: "https://riviera2024-frontend.vercel.app/",
+            // repoUrl: "",
         },
         {
             title: "Liwid",
@@ -271,7 +290,7 @@ export const resume: SiteConfig = {
                 "Designed UI with TailwindCSS and event-based state management.",
             ],
             languages: ["JavaScript"],
-            repoUrl: "https://soundcrowd.dscvit.com/",
+            repoUrl: "https://github.com/gdgvit/soundcrowd-frontend",
             demoUrl: "https://soundcrowd.dscvit.com/",
         },
         {
@@ -317,7 +336,7 @@ export const resume: SiteConfig = {
                 "Implemented customizable themes and user profiles with MongoDB.",
             ],
             languages: ["JavaScript", "HTML", "CSS"],
-            repoUrl: "https://breakey.vercel.app/",
+            repoUrl: "https://github.com/dk-a-dev/breakey",
             demoUrl: "https://breakey.vercel.app/",
         },
         {
