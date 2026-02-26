@@ -8,6 +8,8 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Experience } from "@/components/sections/Experience";
 import { Extras } from "@/components/sections/Extras";
 import { Contact } from "@/components/sections/Contact";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { MixerPanel } from "@/components/MixerPanel";
 
 const App = () => {
     const [currentPage, setCurrentPage] = useState<string>("about");
@@ -38,18 +40,21 @@ const App = () => {
             case "portfolio": return <Portfolio />;
             case "experience": return <Experience />;
             case "extras": return <Extras />;
+            case "mixer": return <MixerPanel />;
             case "contact": return <Contact />;
             default: return <About />;
         }
     };
 
     return (
-        <TooltipProvider>
-            <Sonner />
-            <Layout currentPage={currentPage} onNavigate={handleNavigate}>
-                {renderPage()}
-            </Layout>
-        </TooltipProvider>
+        <ThemeProvider>
+            <TooltipProvider>
+                <Sonner />
+                <Layout currentPage={currentPage} onNavigate={handleNavigate}>
+                    {renderPage()}
+                </Layout>
+            </TooltipProvider>
+        </ThemeProvider>
     );
 };
 

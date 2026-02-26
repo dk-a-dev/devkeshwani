@@ -37,32 +37,86 @@
 }
 
 @layer base {
-    * { @apply border-border; }
-    /* Keep your noise filter, it adds texture! */
+    * {
+        @apply border-border;
+    }
+
     body {
         @apply text-foreground bg-background;
         min-height: 100vh;
         font-family: "Inter", sans-serif;
-
-        /* The Candy Shop Background */
         background-color: #0a0a0c;
-        background-image:
-            /* The Noise */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E"),
-                    /* Top Left Pink Blob (Primary) */
-                radial-gradient(circle at 15% 25%, rgba(219, 39, 119, 0.15) 0%, transparent 50%),
-                    /* Bottom Right Teal Blob (Secondary) */
-                radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
-                    /* Center subtle purple for depth */
-                radial-gradient(circle at 50% 50%, rgba(120, 50, 255, 0.05) 0%, transparent 60%);
-
         background-attachment: fixed;
         overflow-x: hidden;
+        --blob-a: rgba(219, 39, 119, 0.15);
+        --blob-b: rgba(20, 184, 166, 0.15);
     }
+
+    /* ===== TEXTURE: Noise (default) ===== */
+    body,
+    body[data-texture="noise"] {
+        background-image:
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E"),
+            radial-gradient(circle at 15% 25%, var(--blob-a) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, var(--blob-b) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(120, 50, 255, 0.05) 0%, transparent 60%);
+    }
+
+    /* ===== TEXTURE: Mesh ===== */
+    body[data-texture="mesh"] {
+        background-image:
+            radial-gradient(at 20% 20%, var(--blob-a) 0%, transparent 40%),
+            radial-gradient(at 80% 20%, var(--blob-b) 0%, transparent 40%),
+            radial-gradient(at 50% 80%, var(--blob-a) 0%, transparent 40%),
+            radial-gradient(at 80% 80%, rgba(120, 50, 255, 0.08) 0%, transparent 40%),
+            radial-gradient(at 20% 60%, var(--blob-b) 0%, transparent 40%);
+    }
+
+    /* ===== TEXTURE: Aurora ===== */
+    body[data-texture="aurora"] {
+        background-image:
+            linear-gradient(135deg, var(--blob-a) 0%, transparent 30%),
+            linear-gradient(225deg, var(--blob-b) 0%, transparent 30%),
+            linear-gradient(315deg, rgba(120, 50, 255, 0.08) 0%, transparent 30%);
+        animation: auroraShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes auroraShift {
+        0% {
+            background-position: 0% 0%, 100% 0%, 50% 100%;
+        }
+
+        100% {
+            background-position: 100% 100%, 0% 100%, 50% 0%;
+        }
+    }
+
+    /* ===== TEXTURE: Grain ===== */
+    body[data-texture="grain"] {
+        background-image:
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.06'/%3E%3C/svg%3E"),
+            radial-gradient(circle at 30% 40%, var(--blob-a) 0%, transparent 45%),
+            radial-gradient(circle at 70% 60%, var(--blob-b) 0%, transparent 45%);
+    }
+
+    /* ===== TEXTURE: Minimal ===== */
+    body[data-texture="minimal"] {
+        background-image: none;
+    }
+
+    /* ===== TEXTURE: Dots ===== */
+    body[data-texture="dots"] {
+        background-image:
+            radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            radial-gradient(circle at 20% 30%, var(--blob-a) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, var(--blob-b) 0%, transparent 50%);
+        background-size: 20px 20px, 100% 100%, 100% 100%;
+    }
+
     @media (max-width: 768px) {
         body {
-            background-image: radial-gradient(circle at 15% 50%, rgba(70, 20, 40, 0.15), transparent 45%),
-            radial-gradient(circle at 85% 30%, rgba(20, 60, 60, 0.15), transparent 45%) !important;
+            background-image: radial-gradient(circle at 15% 50%, var(--blob-a), transparent 45%),
+                radial-gradient(circle at 85% 30%, var(--blob-b), transparent 45%) !important;
         }
     }
 }
@@ -75,11 +129,9 @@
         -webkit-backdrop-filter: blur(40px);
 
         /* The "Candy" Gradient: Slightly more opacity at the top-left (light source) */
-        background: linear-gradient(
-                135deg,
+        background: linear-gradient(135deg,
                 rgba(255, 255, 255, 0.1) 0%,
-                rgba(255, 255, 255, 0.01) 100%
-        );
+                rgba(255, 255, 255, 0.01) 100%);
 
         /* The Magic Border: Transparent real border, but we use box-shadow for the rim light */
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -90,49 +142,88 @@
            3. drop shadow: separation from background
         */
         box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-                0 4px 24px -1px rgba(0, 0, 0, 0.3);
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+            0 4px 24px -1px rgba(0, 0, 0, 0.3);
     }
 
     .glass-card:hover {
         /* On hover, we crank the rim light to simulate moving closer to the light source */
-        background: linear-gradient(
-                135deg,
+        background: linear-gradient(135deg,
                 rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.02) 100%
-        );
+                rgba(255, 255, 255, 0.02) 100%);
         border-color: rgba(255, 255, 255, 0.2);
         box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-                0 8px 32px -4px rgba(0, 0, 0, 0.4);
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 8px 32px -4px rgba(0, 0, 0, 0.4);
         transform: translateY(-2px);
     }
+
     .glass-container {
         @apply border border-white/10 shadow-2xl;
         backdrop-filter: blur(40px);
         -webkit-backdrop-filter: blur(40px);
         background: rgba(10, 10, 12, 0.6);
     }
+
     @media (max-width: 768px) {
         .glass-card {
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
             background: rgba(20, 20, 25, 0.95) !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-        .glass-card:hover { transform: none !important; }
-        .glass-container { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: #09090b !important; }
+
+        .glass-card:hover {
+            transform: none !important;
+        }
+
+        .glass-container {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: #09090b !important;
+        }
     }
+
     .animate-fade-up {
         animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
         transform: translateY(20px);
         will-change: opacity, transform;
     }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .preserve-3d { transform-style: preserve-3d; }
+
+    @keyframes fadeUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .preserve-3d {
+        transform-style: preserve-3d;
+    }
+
+    .animate-marquee {
+        animation: marquee 12s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
 }

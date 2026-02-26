@@ -8,7 +8,7 @@
   "description": "Dev Keshwani — Full-Stack developer portfolio. About, work, experience and contact.",
   "icons": [
     {
-      "src": "/public/favicon.png",
+      "src": "/public/favicon.ico",
       "sizes": "512x512",
       "type": "image/png"
     }

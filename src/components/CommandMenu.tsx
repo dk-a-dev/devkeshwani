@@ -18,7 +18,8 @@ import {
     ExternalLink,
     Box,
     Copy,
-    Sparkles
+    Sparkles,
+    Music2
 } from "lucide-react";
 import { toast } from "sonner";
 import { resume } from "@/data/resume";
@@ -64,6 +65,9 @@ export function CommandMenu({ onNavigate }: CommandMenuProps) {
                     </CommandItem>
                     <CommandItem value="extras" onSelect={() => runCommand(() => onNavigate("extras"))}>
                         <Sparkles className="mr-2 h-4 w-4" /> Extras <CommandShortcut>⌘X</CommandShortcut>
+                    </CommandItem>
+                    <CommandItem value="mixer dj music" onSelect={() => runCommand(() => onNavigate("mixer"))}>
+                        <Music2 className="mr-2 h-4 w-4" /> DJ Mixer <CommandShortcut>⌘M</CommandShortcut>
                     </CommandItem>
                     <CommandItem value="contact" onSelect={() => runCommand(() => onNavigate("contact"))}>
                         <Mail className="mr-2 h-4 w-4" /> Contact <CommandShortcut>⌘C</CommandShortcut>
