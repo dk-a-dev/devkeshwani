@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import { useState, useEffect } from "react";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Layout } from "@/components/Layout";
+import { About } from "@/components/sections/About";
+import { Portfolio } from "@/components/sections/Portfolio";
+import { Experience } from "@/components/sections/Experience";
+import { Extras } from "@/components/sections/Extras";
+import { Contact } from "@/components/sections/Contact";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    const [currentPage, setCurrentPage] = useState<string>("about");
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    useEffect(() => {
+        const getRoute = () => (location.hash.replace("#", "") || "about").toLowerCase();
+        const handleHashChange = () => {
+            setCurrentPage(getRoute());
+            window.scrollTo({ top: 0, behavior: "auto" });
+        };
+        handleHashChange();
+        window.addEventListener("hashchange", handleHashChange);
+        return () => window.removeEventListener("hashchange", handleHashChange);
+    }, []);
 
-export default App
+    const handleNavigate = (page: string) => {
+        if (!document.startViewTransition) {
+            location.hash = page;
+            return;
+        }
+        document.startViewTransition(() => {
+            location.hash = page;
+        });
+    };
+
+    const renderPage = () => {
+        switch (currentPage) {
+            case "portfolio": return <Portfolio />;
+            case "experience": return <Experience />;
+            case "extras": return <Extras />;
+            case "contact": return <Contact />;
+            default: return <About />;
+        }
+    };
+
+    return (
+        <TooltipProvider>
+            <Sonner />
+            <Layout currentPage={currentPage} onNavigate={handleNavigate}>
+                {renderPage()}
+            </Layout>
+        </TooltipProvider>
+    );
+};
+
+export default App;
