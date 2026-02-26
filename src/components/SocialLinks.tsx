@@ -58,7 +58,7 @@ function MagneticButton({ children, href, label }: { children: React.ReactNode, 
 }
 
 export function SocialLinks() {
-    // 🦊 The "Are you using a shit browser?" Check
+    // Firefox has some rendering issues with the magnetic effect, so we fall back to a simpler animation.
     const isFirefox = useMemo(() => {
         if (typeof window === "undefined") return false;
         return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -69,7 +69,7 @@ export function SocialLinks() {
             {resume.contact.socials.map((social) => {
                 const Icon = social.icon;
 
-                // IF FIREFOX: Return the primitive, caveman version.
+                // Fallback for Firefox
                 if (isFirefox) {
                     return (
                         <a
@@ -80,15 +80,15 @@ export function SocialLinks() {
                             aria-label={social.name}
                             className="w-10 h-10 grid place-items-center glass-card rounded-[0.875rem] border border-glass-border transition-all hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5 text-muted-foreground"
                         >
-                            <Icon className="h-[18px] w-[18px]"/>
+                            <Icon className="h-[18px] w-[18px]" />
                         </a>
                     );
                 }
 
-                // IF MODERN BROWSER: Return the fancy magnetic shit.
+                // Magnetic button for modern browsers
                 return (
                     <MagneticButton key={social.name} href={social.url} label={social.name}>
-                        <Icon className="h-[18px] w-[18px]"/>
+                        <Icon className="h-[18px] w-[18px]" />
                     </MagneticButton>
                 );
             })}

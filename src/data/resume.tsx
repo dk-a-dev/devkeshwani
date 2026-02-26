@@ -336,4 +336,51 @@ export const resume: SiteConfig = {
             repoUrl: "https://github.com/dk-a-dev/book-keeping-app",
         },
     ],
+
+    sessions: [
+        {
+            title: "Android Study Jams: Introduction to Android Development",
+            description: "Beginner-friendly sessions on developing Android apps using Kotlin.",
+            topics: ["Android Dev", "Kotlin"],
+            youtubeEmbedUrl: "https://www.youtube.com/embed/NJaEcyOwAu0?si=9gz-fg_LxfxToXHE",
+        },
+        {
+            title: "Android Study Jams: Architecture and Compose",
+            description: "Deep-dive into app architecture patterns, LiveData, and Jetpack Compose.",
+            topics: ["App Architecture", "Kotlin", "Android Dev"],
+            youtubeEmbedUrl: "https://www.youtube.com/embed/BVpa-QR7GLQ?si=9SJhYkY-N3yXKq09",
+        },
+        {
+            title: "Android Study Jams: Networking and Task Scheduling",
+            description: "Fetching data from APIs, coroutines, and background task scheduling.",
+            topics: ["Android Dev", "Kotlin", "Coroutines"],
+            youtubeEmbedUrl: "https://www.youtube.com/embed/y9nkT8dHB_0?si=6qKSBn41gC8PhL27",
+        },
+        {
+            title: "PyCamp: Python Libraries",
+            description: "A series of sessions on Python libraries organised by IEEE-VIT.",
+            topics: ["Python", "Data Science", "Web-Scraping", "Flask"],
+            youtubeEmbedUrl: null,
+            image: "/extra/pycamp.svg",
+            link: "https://github.com/IEEE-VIT/PyCamp-Day1",
+        },
+    ],
+
+    blogs: [
+        {
+            title: "Decoding VAR: The Polarizing Force Reshaping Football's Destiny",
+            description: "The beautiful game — \"Football\". With a ball, a field, and unbridled passion, it's a sport that speaks a universal language, uniting…",
+            topics: ["Football", "VAR", "Technology"],
+            image: "/extra/var.svg",
+            link: "https://medium.com/@dev.keshwani345/decoding-var-the-polarizing-force-reshaping-footballs-destiny-9564021cd368",
+        },
+    ],
+
+    certifications: [
+        { name: "DevOps Fundamentals", issuer: "IBM Career Education Program", description: "CI/CD pipelines, containerization, and monitoring tools." },
+        { name: "DevOps, Agile & Design Thinking", issuer: "IBM Career Education Program", description: "Agile frameworks, Scrum practices, and design thinking." },
+        { name: "Full-Stack Web Development Bootcamp", issuer: "Udemy", description: "React, Node.js, Express, MongoDB, and deployment strategies." },
+        { name: "Flutter & Dart", issuer: "Udemy", description: "Mobile apps with Flutter, Firebase integration, and UI/UX." },
+        { name: "Postman API Fundamentals Student Expert", issuer: "Postman", description: "API design, testing, and automation workflows." },
+    ],
 };
