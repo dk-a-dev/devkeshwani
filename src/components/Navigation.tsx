@@ -18,6 +18,7 @@ const navItems = [
     { id: "portfolio", label: "Portfolio" },
     { id: "experience", label: "Experience" },
     { id: "extras", label: "Extras" },
+    { id: "mixer", label: "DJ - Dave" },
     { id: "contact", label: "Contact me" },
 ];
 
