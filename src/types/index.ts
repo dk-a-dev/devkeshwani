@@ -40,6 +40,29 @@ export interface Attribute {
     color: string; // Tailwind text color
 }
 
+export interface Session {
+    title: string;
+    description: string;
+    topics: string[];
+    youtubeEmbedUrl?: string | null;
+    image?: string;
+    link?: string;
+}
+
+export interface Blog {
+    title: string;
+    description: string;
+    topics: string[];
+    image?: string;
+    link: string;
+}
+
+export interface Certification {
+    name: string;
+    issuer: string;
+    description: string;
+}
+
 export interface SiteConfig {
     name: string;
     role: string;
@@ -55,4 +78,7 @@ export interface SiteConfig {
     attributes: Attribute[];
     experience: Job[];
     projects: Project[];
+    sessions: Session[];
+    blogs: Blog[];
+    certifications: Certification[];
 }
