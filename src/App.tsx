@@ -11,6 +11,7 @@ import { Contact } from "@/components/sections/Contact";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { MixerPanel } from "@/components/MixerPanel";
 import { Analytics } from "@vercel/analytics/react";
+import { track } from "@vercel/analytics";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const App = () => {
@@ -19,7 +20,9 @@ const App = () => {
     useEffect(() => {
         const getRoute = () => (location.hash.replace("#", "") || "about").toLowerCase();
         const handleHashChange = () => {
-            setCurrentPage(getRoute());
+            const newPage = getRoute();
+            setCurrentPage(newPage);
+            track("Pageview", { path: window.location.pathname + window.location.hash });
             window.scrollTo({ top: 0, behavior: "auto" });
         };
         handleHashChange();
